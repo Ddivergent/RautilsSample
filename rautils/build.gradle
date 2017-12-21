@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 26
@@ -23,7 +25,26 @@ android {
     }
 
 }
+bintray {
+    user = 'iamakki'
+    key = 'f674f9ba8cb161f47cb3217f4fca6588d67bd3ae'
+    pkg {
+        repo = 'rautlis'
+        name = 'com.iamrajendra.io.rautils'
 
+        version {
+            name = '1.0-version'
+            desc = 'powerfull api for android'
+            released  = new Date()
+            vcsTag = 'v1.0'
+        }
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/Ddivergent/RautilsSample.git'
+        websiteUrl = 'https://github.com/Ddivergent/RautilsSample.git'
+    }
+    configurations = ['archives']
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -33,3 +54,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
 }
+
